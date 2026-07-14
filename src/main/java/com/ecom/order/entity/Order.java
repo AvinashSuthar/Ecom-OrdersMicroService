@@ -22,10 +22,10 @@ public class Order {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrderItem> orderItems;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "shipping_address_id")
     private ShippingAddress shippingAddress;
     private Double totalAmount;
     private Double discountAmount;
-    private Double discountRate;
     private Double deliveryFee;
 }
